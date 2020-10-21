@@ -37,10 +37,10 @@
 
                 <div id ="progress-bar">
                     <ul>
-                        <li class = "step step01" rel = "one"><img src = "./images/correct.png"></li>
-                        <li class = "step step02" rel = "two"><img src = "./images/correct.png"></li>
-                        <li class = "step step03" rel = "three"><img src = "./images/correct.png"></li>
-                        <li class = "step step04" rel = "four"><img src = "./images/correct.png"></li>
+                        <li class = "step step01" rel = "one"><img src = "./images/ufpe.png"></li>
+                        <li class = "step step02" rel = "two"><img src = "./images/gama-n.png"></li>
+                        <li class = "step step03" rel = "three"><img src = "./images/ciclo.png"></li>
+                        <li class = "step step04" rel = "four"><img src = "./images/Brasao.png"></li>
                     </ul>
                     <div id = "line">
                         <div id = "line-progress"></div>
@@ -92,6 +92,10 @@
         <script src="./time-line.js"></script>
 
         <script src="./newjava.js"></script>
+        <script>
+            var tlo = new TimelineMax();
+    tlo.to("h2", 4, {repeat:Infinity, repeatDelay:1, yoyo:true, text:" is so much fun you should try it some time!"})
+        </script>
 
     </body>
 </html>

@@ -1,16 +1,18 @@
 function pageTransition() {
+
     var tl = gsap.timeline();
     /*  other transition
     tl.to("ul.transition li", { duration: .5, scaleY: 1, transformOrigin: "bottom left", stagger: .2 })
     tl.to("ul.transition li", { duration: .5, scaleY: 0, transformOrigin: "bottom left", stagger: .1, delay: .1 }) */
     tl
     /* banner content */
-    .to("h2", {opacity:0, duration:0.5})
-    .to("p", {opacity:0}, "-=0.5")
-    .to(".container a", {opacity:0}, "-=0.5")
-    .to(".home .image", {duration:0.2, opacity:0}, "-=0.5")
+    .to("h2", {opacity:0, duration:0.1})
+    .to("h3", {opacity:0, duration: 0.1}, "-=0.5")
+    .to(".home .image", {opacity:0, duration: 0.1, backgroundSize:650}, "-=0.5")
+    .to(".home-down", {opacity:0, duration: 0.1}, "-=0.5")
     /* about content */
-    .to(".about .image", {duration:0.2, opacity:0, backgroundSize:550}, "-=0.5")/*
+    .to(".about .image", {duration:0.2, backgroundSize:550}, "-=0.5")
+    .to(".about", {duration:0.5, opacity:0}, "-=0.5")
     /* time-line content */
     .to("#progress-bar", {duration:0.4, opacity:0}, "-=0.5")
     .to("#progress-content", {duration: 0.5, opacity:0}, "-=0.5")
@@ -26,23 +28,20 @@ function pageTransition() {
     .to(".contact .info", {duration:0.5, opacity:0}, "-=0.5")
     .to("h5", {opacity:0, duration:0.8}, "-=0.5")
 
-    .fromTo(".container", {opacity: 1, duration: 1, height: "90vh"}, {opacity: 0, height: "0vh"})
-
+    .fromTo(".container", {opacity: 1, duration: 0.5, height: "90vh"}, {opacity: 0, height: "0vh"})
 }
 function pageTras() {
-    var tl = gsap.timeline();/*
-    tl.from(".container", {opacity: 1, duration: 0.9, x:"-100%", ease: Elastic.easeOut.config( 1, 0.5)})*/
-    tl.fromTo(".container", {opacity: 1, duration: 0.5, height: "0vh"}, {opacity: 1, height: "90vh"})
+    var tl = gsap.timeline();
+    tl.fromTo(".container", {opacity: 1, duration: 0.5, height: "0vh"}, {opacity: 1, height: "90vh"});
 }
 function contentAnimation() {
     var tl = gsap.timeline();
     /* banner content */
-    tl.from("h2", {duration: 1.2, translateY: 50, opacity: 0, delay: 0.3});
-    tl.from("p", {duration: 1.4, translateY: 50, opacity: 0}, "-=1");
-    tl.fromTo(".container a", {opacity: 0, translateY: 50, duration: 0}, {opacity: 0.6, translateY: 0, duration: 1.4}, "-=1");
-    tl.fromTo(".home .image", {opacity:0, backgroundSize:550}, {duration:1.5,opacity:1, backgroundSize:700}, "-=1.8");
+    tl.fromTo("h2", {opacity:0, duration:0.9},{opacity:1, translateY:-50});
+    tl.fromTo(".home .image", {duration:0.5, opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700}, "-=0.5");/*
     /* about content */
-    tl.fromTo(".about .image", {opacity:0, backgroundSize:550, translateY:-50}, {duration:1,opacity:1, backgroundSize:700, translateY:0}, "-=1.8");
+    tl.fromTo(".about .image", {opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700, translateY:-20}, "-=0.9")
+    tl.fromTo(".next-button", {opacity:0, backgroundSize:20}, {opacity:1, backgroundSize:50});
     /* time-line content */
     tl.fromTo("#progress-bar", {opacity:0}, {opacity:1}, "-=2");
     tl.fromTo("#line", {duration:0, opacity:0, translateX:-1000, width:"300%"}, {duration:0.1, opacity:1, translateX:0, width:"75%", ease: Elastic.easeOut.config( 3, 0.5)}, "-=1.5");
@@ -85,7 +84,7 @@ barba.init({
         async leave(data) {
             const done = this.async();
             pageTransition();
-            await delay(1000);
+            await delay(1500);
             done();
         },
         async enter(data) {
@@ -99,12 +98,360 @@ barba.init({
     views: [{
         namespace: 'home',
         afterEnter() {
-            //
+            gsap.registerPlugin(ScrollTrigger)
+
+            gsap.to(".image", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".image",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: 0.1
+                },
+                y: -100,
+                x: 50,
+                stagger: true,
+                ease: "none",
+            })
+
+            gsap.to(".content", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: 0.8
+                },
+                y: -100,
+                x: -50,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content",
+                    start: "bottom 15%",
+                    end: "+=100",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: 0.8
+                },
+                opacity: 0
+            })
+
+
+            /* COMPONENTES DA ESQUERDA - FIRST */
+            gsap.to(".img-left-first img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-first img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: -500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-left-first img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-first img",
+                    start: "top 10%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineleft-first", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-first",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: -480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineleft-first", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-first",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-left-first", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-left-first",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: -200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-left-first", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "top 20%",
+                    end: "+=75",
+                    trigger: ".content-left-first",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+
+            /* COMPONENTES DA DIREITA */
+            gsap.to(".img-right-second img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-second img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: 500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-right-second img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-second img",
+                    start: "top 10%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineright-second", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-second",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: 480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineright-second", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-second",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-right-second", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-right-second",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: 200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-right-second", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "center 55%",
+                    trigger: ".content-right-second",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+
+            /* REPETIÇÃO PARA DEMAIS QUADROS */
+
+            /* COMPONENTES DA ESQUERDA */
+            gsap.to(".img-left-third img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-third img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: -500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-left-third img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-third img",
+                    start: "top 10%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineleft-third", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-third",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: -480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineleft-third", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-third",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-left-third", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-left-third",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: -200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-left-third", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "center 55%",
+                    trigger: ".content-left-third",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+
+            /* COMPONENTES DA DIREITA */
+            gsap.to(".img-right-fourth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-fourth img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: 500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-right-fourth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-fourth img",
+                    start: "top 10%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineright-fourth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-fourth",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: 480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineright-fourth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-fourth",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-right-fourth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-right-fourth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: 200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-right-fourth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "center 55%",
+                    trigger: ".content-right-fourth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+
+
         }
     },{
         namespace: 'about',
         afterEnter() {
-            //
+            const words = ["Sou observador, dedicado e fascinado por idéias simples para grandes problemas.<br><br>Gosto de metodologias ágeis e trabalhar em múltiplos projetos com uso de métricas.<br><br>Já atuei na área comercial e assumi responsabilidades como líder de equipe em projeto, definindo e cumprindo prazos.<br>Tenho experiência em gerar relatórios e organizar dados para melhor visualização."]
+            
+            let masterTl = gsap.timeline({/*repeat: 1,*/ delay:1})
+
+            words.forEach(letter => {
+                let tl = gsap.timeline({yoyo:true/*,repeat:1,repeatDelay:2*/})
+                tl.to(".text",{duration:25, text: letter})
+                masterTl.add(tl)
+            })
         }
     },{
         namespace: 'time-line',

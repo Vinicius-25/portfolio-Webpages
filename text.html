@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//fonts.googleapis.com/css?family=Signika+Negative:300,400' rel='stylesheet' type='text/css'>
+    <title>Document</title>
+    <style>
+    .box {
+  width:300px;
+}
+
+h1 span {
+  color:#6fb936;
+}</style>
+</head>
+<body>
+    <h1 id="myText">wait 1 second please</h1>
+    
+    <script src="cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/TextPlugin.min.js"></script>
+    <script src="cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/TextPlugin.min.js"></script>
+    <script>
+TweenLite.to("#myText", 2, {text:"thank you for waiting", delay:1});
+    </script>
+</body>
+</html>

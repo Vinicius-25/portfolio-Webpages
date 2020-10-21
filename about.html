@@ -19,7 +19,7 @@
         <!-- HEADER NAVIGATION -->
         <header>
             <a href = "#" class = "logo">Portfólio</a>
-            <div class = "menu""></div>
+            <div class = "menu"></div>
             <ul>
                 <li><a href = "index.html">Home</a></li>
                 <li><a href = "about.html">Sobre</a></li>
@@ -34,15 +34,46 @@
         <main data-barba="container" data-barba-namespace="about">
             <div class="container">
                 <div class = "about">
-                    <h2>WHO we ARE</h2>
-                    <p>Blah Blah Blahssss<br> Ipsulum deltal fogos asdinandsa asdinasd.</p>
-                    <a href ="#" class = "button">Read Here</a>
+                    <h2>Quem sou</h2>
+                    <h3 class="text"> </h3>
+                    <!--<a href ="#" class = "button">Read Here</a>-->
                     <div class="image"></div>
+                    <div id="about-next">
+                        <div href = "time-line.html" class="next-button"></div>
+                    </div>
                 </div>
                 
             </div>
+
+            
         </main>
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/TextPlugin.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script>
+        <script>
+            const words = ["Sou observador, dedicado e fascinado por idéias simples para grandes problemas.<br><br>Gosto de metodologias ágeis e trabalhar em múltiplos projetos com uso de métricas.<br><br>Já atuei na área comercial e assumi responsabilidades como líder de equipe em projeto, definindo e cumprindo prazos.<br>Tenho experiência em gerar relatórios e organizar dados para melhor visualização."]
+            
+            let masterTl = gsap.timeline({/*repeat: 1,*/ delay:1})
+
+            words.forEach(word => {
+                let tl = gsap.timeline({yoyo:true/*,repeat:1,repeatDelay:2*/})
+                tl.to(".text",{duration:20, text: letter})
+                masterTl.add(tl)
+            })
+        </script>
+
+<!--
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/TextPlugin.min.js'></script>
+    <script>
+    TweenLite.defaultEase = Linear.easeNone;
+
+    var tlo = new TimelineMax();
+    tlo.to("h2", 4, {repeat:Infinity, repeatDelay:1, yoyo:true, text:" is so much fun you should try it some time!"})
+    </script>
+-->
+
 <!--        <script>/*
             gsap.from('.about', {opacity: 1, duration: 2, height: "0%"})
             gsap.from('.about', {opacity: 1, duration: 2, x:"-100%", /*ease: 'elastic(1, 0.3)'/})

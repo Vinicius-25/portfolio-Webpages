@@ -21,8 +21,8 @@
             <a href = "#" class = "logo">Portfólio</a>
             <div class = "menu"></div>
             <ul>
-                <li><a href = "index.html">Home</a></li>
-                <li><a href = "about.html">Sobre</a></li>
+                <li><a href = "https://vinicius-25.github.io/portfolio-page/">Home</a></li>
+                <li><a href = "#">Sobre</a></li>
                 <li><a href = "time-line.html">Linha do Tempo</a></li>
                 <li><a href = "skills.html">Habilidades</a></li>
                 <li><a href = "portfolio.html">Artigos</a></li>
@@ -39,52 +39,37 @@
                     <!--<a href ="#" class = "button">Read Here</a>-->
                     <div class="image"></div>
                     <div id="about-next">
-                        <div href = "time-line.html" class="next-button"></div>
+                        <a href = "time-line.html"><div class="next-button"></div></a>
                     </div>
                 </div>
-                
             </div>
-
-            
         </main>
         
+        <!-- to use gsap -->
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+        <script src="/GSAP/gsap-member/minified/gsap.min.js"></script>
+        
+        <!-- librarie for Tweenmax and TimeLine-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk=" crossorigin="anonymous"></script>
+
+        <!-- parallax with ScrollTrigger -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+
+        <!-- to use barba -->
+        <script src="https://unpkg.com/@barba/core"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
+        <!-- to use textplugin -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/TextPlugin.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script>
-        <script>
-            const words = ["Sou observador, dedicado e fascinado por idéias simples para grandes problemas.<br><br>Gosto de metodologias ágeis e trabalhar em múltiplos projetos com uso de métricas.<br><br>Já atuei na área comercial e assumi responsabilidades como líder de equipe em projeto, definindo e cumprindo prazos.<br>Tenho experiência em gerar relatórios e organizar dados para melhor visualização."]
-            
-            let masterTl = gsap.timeline({/*repeat: 1,*/ delay:1})
 
-            words.forEach(word => {
-                let tl = gsap.timeline({yoyo:true/*,repeat:1,repeatDelay:2*/})
-                tl.to(".text",{duration:20, text: letter})
-                masterTl.add(tl)
-            })
-        </script>
-
-<!--
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/TextPlugin.min.js'></script>
-    <script>
-    TweenLite.defaultEase = Linear.easeNone;
-
-    var tlo = new TimelineMax();
-    tlo.to("h2", 4, {repeat:Infinity, repeatDelay:1, yoyo:true, text:" is so much fun you should try it some time!"})
-    </script>
--->
-
-<!--        <script>/*
-            gsap.from('.about', {opacity: 1, duration: 2, height: "0%"})
-            gsap.from('.about', {opacity: 1, duration: 2, x:"-100%", /*ease: 'elastic(1, 0.3)'/})
-*/
-            var tl = gsap.timeline({defaults:{duration: 1}})
-
-            tl
-            .from(".about", {opacity: 1, duration: 0.8, x:"-100%"})
-            .from(".about", {opacity: 1, duration: 0.3, height: "0%"})
-           
-        </script>
---> 
     </body>
 </html>

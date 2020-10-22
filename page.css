@@ -809,31 +809,60 @@ span {
     transition: 1s;
     cursor: pointer;
     margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.skill .celular-line {
+    border-top: 5px solid #004E89;
+    border-bottom: 5px solid #40434F;
+    border-radius: 10%;
+    height: 90%;
+    width: 80%;
+    transition: 1s;
+    transform: scale(1);
+    opacity: 0;
+}
+.skill .celular-line:hover {
+    animation: animate-celularline 1.5s linear infinite;
 }
 .skill .celular:hover {
-    transform: scale(1.2);
     animation: animate-hover 1.5s linear infinite;
     opacity: 0;
 }
-/*
-<i class="fa fa-instagram"></i> */
+
 @keyframes animate-hover {
     0% {
-        transform: scale(0.7s);
+        transform: scale(1);
         opacity: 1;
     }
     50% {
         transform: scale(1.4);
         opacity: 1;
-        box-shadow: 0 0 0 0 #0D1A30;
     }
     75% {
         opacity: 1;
-        box-shadow: 0 0 10px 15px #004E89;
     }
     100% {
-        transform: scale(0.7s);
+        transform: scale(1);
         opacity: 1;
+    }
+}
+@keyframes animate-celularline {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        transform: scale(1.4);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
     }
 }
 #celular01 {

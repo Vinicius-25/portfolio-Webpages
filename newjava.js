@@ -6,10 +6,10 @@ function pageTransition() {
     tl.to("ul.transition li", { duration: .5, scaleY: 0, transformOrigin: "bottom left", stagger: .1, delay: .1 }) */
     tl
     /* banner content */
-    .to("h2", {opacity:0, duration:0.1})
-    .to("h3", {opacity:0, duration: 0.1}, "-=0.5")
-    .to(".home .image", {opacity:0, duration: 0.1, backgroundSize:650}, "-=0.5")
-    .to(".home-down", {opacity:0, duration: 0.1}, "-=0.5")
+    .to("h2", {opacity:0, duration:0.5})
+    .to("h3", {opacity:0, duration: 0.5}, "-=0.5")
+    .to(".home .image", {opacity:0, duration: 0.3, backgroundSize:650}, "-=0.7")
+    .to(".home-down", {opacity:0, duration: 0.3}, "-=0.3")
     /* about content */
     .to(".about .image", {duration:0.2, backgroundSize:550}, "-=0.5")
     .to(".about", {duration:0.5, opacity:0}, "-=0.5")
@@ -17,16 +17,19 @@ function pageTransition() {
     .to("#progress-bar", {duration:0.4, opacity:0}, "-=0.5")
     .to("#progress-content", {duration: 0.5, opacity:0}, "-=0.5")
     /* skills content */
-    .to(".skill", {opacity:0, translateY:-200}, "-=0.5")
-    .to("#line-bar", {opacity:0, width:0, translateX:"80vh"}, "-=1.3")
+    .to(".skill", {opacity:0, translateY:-200})
+    .to("#line-bar", {opacity:0, width:0, translateX:"80vh"}, "-=1")
     /* portfolio content */
     .to(".swiper-container", {duration: 0.5, opacity:0}, "-=0.5")
     /* contact content */
-    .to(".contact-form .form-box .input-box.w1", {duration:0.5, opacity:0, translateX:-200}, "-=0.5")
-    .to(".contact-form .form-box .input-box textarea", {duration:0.5, opacity:0, translateX:-200}, "-=0.5")
-    .to(".contact-form .form-box", {duration:0.5, opacity:0, translateX:-200}, "-=0.5")
+    .to(".contact-form .form-box", {duration:0.1, opacity:0}, "-=0.8")
+    .to(".contact-form .form-box .input-box textarea", {duration:0.3, translateX:-100}, "-=0.3")
+    .to(".contact-form .form-box", {duration:0.5, opacity:0, translateX:-100}, "-=0.3")
     .to(".contact .info", {duration:0.5, opacity:0}, "-=0.5")
-    .to("h5", {opacity:0, duration:0.8}, "-=0.5")
+    .to("h5", {opacity:0, duration:0.8}, "-=0.6")
+    .to(".contact .contact-links", {opacity:0, duration:0.8}, "-=0.6")
+    .to(".contact-form", {duration:0.05, opacity:0, height:"0%", translateX:-500, ease: Elastic.easeOut.config(5, 5)}, "-=1.5")
+    .to(".contact", {opacity:0, height:"0%",ease: Elastic.easeOut.config(5, 5)}, "-=1")
 
     .fromTo(".container", {opacity: 1, duration: 0.5, height: "90vh"}, {opacity: 0, height: "0vh"})
 }
@@ -40,32 +43,33 @@ function contentAnimation() {
     tl.fromTo("h2", {opacity:0, duration:0.9},{opacity:1, translateY:-50});
     tl.fromTo(".home .image", {duration:0.5, opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700}, "-=0.5");/*
     /* about content */
-    tl.fromTo(".about .image", {opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700, translateY:-20}, "-=0.9")
+    tl.fromTo(".about .image", {opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700, translateY:-20})
     tl.fromTo(".next-button", {opacity:0, backgroundSize:20}, {opacity:1, backgroundSize:50});
     /* time-line content */
-    tl.fromTo("#progress-bar", {opacity:0}, {opacity:1}, "-=2");
-    tl.fromTo("#line", {duration:0, opacity:0, translateX:-1000, width:"300%"}, {duration:0.1, opacity:1, translateX:0, width:"75%", ease: Elastic.easeOut.config( 3, 0.5)}, "-=1.5");
-    tl.fromTo("#progress-bar ul", {duration:0.5, opacity:0, translateY:-20}, {duration:0.5, opacity:1, translateY:0, ease: Elastic.easeOut.config( 3, 0.5)}, "-=0.8");
+    tl.fromTo("#line", {opacity:0, translateX:-1000, width:"300%"}, {opacity:1, translateX:0, width:"75%", ease: Elastic.easeOut.config( 3, 0.5)});
+    tl.fromTo("#progress-bar ul", {duration:0.5, opacity:0, translateY:-20}, {duration:0.5, opacity:1, translateY:0, ease: Elastic.easeOut.config( 3, 0.5)}, "+=0.7");
     /* skills content */
-    tl.fromTo("#celular01", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.9")
-    tl.fromTo("#celular02", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.8")
-    tl.fromTo("#celular03", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.3")
-    tl.fromTo("#celular04", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.7")
-    tl.fromTo("#celular05", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.3")
-    tl.fromTo("#celular06", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.9")
-    tl.fromTo("#celular07", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.6")
-    tl.fromTo("#celular08", {duration:0, opacity:0, translateY:-900, translateX:-900}, {duration:1, opacity:1, translateY:0, translateX:0}, "-=1.9")
+    tl.fromTo("#celular01", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=2.50")
+    tl.fromTo("#celular06", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=2.35")
+    tl.fromTo("#celular04", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=2.1")
+    tl.fromTo("#celular05", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=1.85")
+    tl.fromTo("#celular03", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=1.6")
+    tl.fromTo("#celular08", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=1.35")
+    tl.fromTo("#celular02", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=1.1")
+    tl.fromTo("#celular07", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=0.85")
     tl.fromTo("#line-bar", {duration:0, opacity:0, width:"0%", translateX:"82vh"}, {duration:0.3, opacity:1, width:"75%", translateX:"0vh"})
     /* portfolio content */
     tl.from(".swiper-container", {duration:1, opacity:0, translateY: 50, ease: Elastic.easeOut.config( 1, 0.5)}, "-=1.1")
     /* contact content */
-    tl.fromTo(".contact", {duration:0.3, opacity:0, translateX:"120%", height:"200%"}, {duration:0.1, opacity:1,height:"72%", ease: Elastic.easeOut.config( 5, 5), delay:0.3}, "-=2")
-    tl.fromTo(".contact .info", {opacity:0, translateX:-50}, {duration:0.5, opacity:1, translateX:0}, "-=1")
-    tl.to(".contact", {duration:1, translateX:"0%", opacity:1, ease:Power1}, "-=1.1")
+    tl.fromTo(".contact", {opacity:0, translateX:"120%", height:"200%"}, {opacity:1,translateX:"120%",height:"72%", ease: Elastic.easeOut.config(5, 5)}, "-=1.9")
+    tl.fromTo(".contact .contact-links", {opacity:0, translateY:100}, {opacity:1, translateY:0}, "-=0.95")
+    tl.fromTo("h5", {opacity:0, translateY:-100},{opacity:1,translateY:0}, "-=0.95");
+    tl.fromTo(".contact .info", {opacity:0, translateX:-50}, {duration:0.5, opacity:1, translateX:0}, "-=0.5")
+    tl.to(".contact", {duration:0.1, translateX:0, ease:Power1}, "+=0.4")
     tl.fromTo(".contact-form", {duration:0, opacity:0, width:"0%", delay:1, translateX:70}, {duration:0.3, opacity:1,width:"50%", translateX:0}, "-=0.3")
-    tl.fromTo(".contact-form .form-box", {opacity:0, translateX:-100}, {opacity:1, translateX:0, duration:1}, "-=0.8")
+    tl.fromTo(".contact-form .form-box", {opacity:0, translateX:-100}, {opacity:1, translateX:0, duration:1}, "-=1")
     tl.fromTo(".contact-form .form-box .input-box textarea", {opacity:0, translateX:-100}, {opacity:1, translateX:0, duration:1}, "-=0.8")
-    tl.fromTo(".contact-form h5", {opacity:0, translateX:-100}, {opacity:1, translateX:0, delay:0.2}, "-=0.3")
+    tl.fromTo(".contact-form h5", {opacity:0, translateX:-100}, {opacity:1, translateX:0, delay:0.2}, "-=0.5")
     tl.fromTo(".contact-form .form-box .input-box.w1", {opacity:0, translateX:-100}, {opacity:1, translateX:0, duration:1}, "-=0.7")
 }
 
@@ -84,7 +88,7 @@ barba.init({
         async leave(data) {
             const done = this.async();
             pageTransition();
-            await delay(1500);
+            await delay(1000);
             done();
         },
         async enter(data) {
@@ -437,8 +441,7 @@ barba.init({
                 },
                 opacity:0,
             })
-
-
+            
         }
     },{
         namespace: 'about',

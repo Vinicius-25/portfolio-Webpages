@@ -22,31 +22,6 @@ gsap.to(".image", {
     ease: "none",
 })
 
-gsap.to(".content", {
-    scrollTrigger: {
-        scroller: ".container",
-        trigger: ".content",
-        toggleActions: "restart pause reverse pause",
-        scrub: 0.8,
-    },
-    y: -100,
-    x: -50,
-    scale: 1.5,
-    stagger: 0.3,
-    ease: "none",
-})
-gsap.to(".content", {
-    scrollTrigger: {
-        scroller: ".container",
-        trigger: ".content",
-        start: "bottom 15%",
-        end: "+=100",
-        toggleActions: "restart pause reverse pause",
-        scrub: 0.8
-    },
-    opacity: 0
-})
-
 /* COMPONENTES DA ESQUERDA - FIRST */
 gsap.to(".img-left-first img", {
     scrollTrigger: {

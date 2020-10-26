@@ -127,7 +127,6 @@ barba.init({
                     trigger: ".content",
                     toggleActions: "restart pause reverse pause",
                     scrub: 0.8,
-                    markers: true,
                 },
                 y: -100,
                 x: -50,
@@ -888,32 +887,6 @@ barba.init({
                     ease: "none",
                 });
             }
-            /*
-            // FIRST ROW
-                
-
-                // SECOND ROW
-            gsap.to(".box-left-second", {
-                scrollTrigger: {
-                    scroller: ".container",
-                    trigger: ".box-left-second",
-                    toggleActions: "restart pause reverse pause",
-                    start: "top 50%",
-                    markers: true,
-                },
-                x: -200
-            });
-            gsap.to(".box-right-second", {
-                scrollTrigger: {
-                    scroller: ".container",
-                    trigger: ".box-right-second",
-                    toggleActions: "restart pause reverse pause",
-                    start: "top 50%",
-                    markers: true,
-                },
-                x: 200
-            });*/
-            
         }
     },{
         namespace: 'contact',

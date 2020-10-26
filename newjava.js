@@ -798,7 +798,7 @@ barba.init({
         afterEnter() {
         
             $("#celular01").click( function() {
-                $("#line-experience").css("width", "30%");
+                $("#line-experience").css("width", "25%");
                 document.getElementById("line-experience").innerHTML = "Básico";
             });
         
@@ -808,17 +808,17 @@ barba.init({
             });
         
             $("#celular03").click( function() {
-                $("#line-experience").css("width", "60%");
+                $("#line-experience").css("width", "75%");
                 document.getElementById("line-experience").innerHTML = "Intermediário";
             });
         
             $("#celular04").click( function() {
-                $("#line-experience").css("width", "80%");
+                $("#line-experience").css("width", "85%");
                 document.getElementById("line-experience").innerHTML = "Avançado";
             });
         
             $("#celular05").click( function() {
-                $("#line-experience").css("width", "20%");
+                $("#line-experience").css("width", "30%");
                 document.getElementById("line-experience").innerHTML = "Básico";
             });
                 
@@ -828,12 +828,12 @@ barba.init({
             });
         
             $("#celular07").click( function() {
-                $("#line-experience").css("width", "60%");
-                document.getElementById("line-experience").innerHTML = "Intermediário";
+                $("#line-experience").css("width", "40%");
+                document.getElementById("line-experience").innerHTML = "Básico";
             });
         
             $("#celular08").click( function() {
-                $("#line-experience").css("width", "80%");
+                $("#line-experience").css("width", "60%");
                 document.getElementById("line-experience").innerHTML = "Intermediário";
             });
 

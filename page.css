@@ -268,7 +268,7 @@ header ul li a:hover {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url("./images/undraw_all_the_data_h4ki.svg");
+    background-image: url("./images/home/undraw_all_the_data_h4ki.svg");
     background-repeat: no-repeat;
     background-size: 700px;
     background-position: right;
@@ -555,7 +555,7 @@ span {
     align-items: center;
 }
 #picture-back.one {
-    background: url('./images/presentation2.png');
+    background: url('#');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -567,7 +567,7 @@ span {
     object-fit: cover;*/
 }
 #picture-back.two {
-    background: url('./images/presentation1.jpg');
+    background: url('#');
     /*background-size: cover;*/
     background-repeat: no-repeat;
     background-position: center;
@@ -578,7 +578,7 @@ span {
     /*filter: blur(5px);*/
 }
 #picture-back.three {
-    background: url('./images/presentation3.jpg');
+    background: url('#');
     /*background-size: cover;*/
     background-repeat: no-repeat;
     background-position: center;
@@ -589,7 +589,7 @@ span {
     /*filter: blur(5px);*/
 }
 #picture-back.four {
-    background: url('./images/presentation4.png');
+    background: url('#');
     /*background-size: cover;*/
     background-repeat: no-repeat;
     background-position: center;
@@ -714,7 +714,7 @@ span {
     min-width: 41%;
     max-width: 55%;
     margin-top: 45vh;
-    background: #DEE6ED;
+    background: #577D9E;
     border-radius: 4px;
     transition: 0.5s;
 }
@@ -735,8 +735,8 @@ span {
 }
 #progress-content .section p {
 	font-size:15px;
-	line-height:1.8em;
-	color:#777;
+	line-height:1.5em;
+	color:#DEE6ED;
 }
 #progress-content .section.active {
     display: block;
@@ -881,7 +881,7 @@ span {
     flex: 1 1 280px;
     grid-column: 1/2;
     grid-row: 4/5;
-    background: url('./images/python2.png');
+    background: url('./images/skills/python2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -896,7 +896,7 @@ span {
     flex: 1 1 280px;
     grid-column: 2/3;
     grid-row: 3/4;
-    background: url('./images/html-css-js.png');
+    background: url('./images/skills/html-css-js.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -911,7 +911,7 @@ span {
     flex: 1 1 280px;
     grid-column: 3/4;
     grid-row: 2/3;
-    background: url('./images/powerBI.png');
+    background: url('./images/skills/powerBI.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -926,7 +926,7 @@ span {
     flex: 1 1 280px;
     grid-column: 4/5;
     grid-row: 1/2;
-    background: url('./images/excel.png');
+    background: url('./images/skills/excel.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -941,7 +941,7 @@ span {
     flex: 1 1 280px;
     grid-column: 2/3;
     grid-row: 4/5;
-    background: url('./images/mySQL2.png');
+    background: url('./images/skills/mySQL2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -956,7 +956,7 @@ span {
     flex: 1 1 280px;
     grid-column: 3/4;
     grid-row: 3/4;
-    background: url('./images/yellow-belt.png');
+    background: url('./images/skills/yellow-belt.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -971,7 +971,7 @@ span {
     flex: 1 1 280px;
     grid-column: 4/5;
     grid-row: 2/3;
-    background: url('./images/MS-Project.jpg');
+    background: url('./images/skills/MS-Project.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -986,7 +986,7 @@ span {
     flex: 1 1 280px;
     grid-column: 5/6;
     grid-row: 1/2;
-    background: url('./images/qgis.png');
+    background: url('./images/skills/qgis.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -1095,7 +1095,7 @@ span {
     margin: auto;
     max-width: 800px;
     width: 100%;
-    margin-top: 8%;
+    margin-top: 7%;
     display: flex;
     flex-wrap: wrap;
     opacity: 0;
@@ -1118,7 +1118,7 @@ span {
     /*display: flex;
     flex-flow: row wrap;*/
     display: grid;
-    grid-gap: 70px;/*
+    grid-gap: 85px;/*
     grid-row: auto;*/
     grid-auto-flow: row;
     place-content: center;
@@ -1141,6 +1141,10 @@ span {
     position: absolute;
     z-index: 10;
 }
+.grid h3 {
+    text-align-last: start;
+    font-size: 17px;
+}
 .box {/*
     max-width: calc(33.333% - 32px);*/
     margin: 15px;
@@ -1151,8 +1155,8 @@ span {
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: 5px solid #004E89;
+    justify-content: center;/*
+    border: 5px solid #004E89;*/
 }
 .grid .box-lineleft{
     width: 250px;

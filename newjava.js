@@ -740,7 +740,6 @@ barba.init({
                 },
                 opacity:0,
             })
-            
         }
     },{
         namespace: 'about',

@@ -20,7 +20,9 @@ function pageTransition() {
     .to(".skill", {opacity:0, translateY:-200})
     .to("#line-bar", {opacity:0, width:0, translateX:"80vh"}, "-=1")
     /* portfolio content */
-    .to(".swiper-container", {duration: 0.5, opacity:0}, "-=0.5")
+    .to(".grid", {opacity:0, translateY:200}, "-=0.6")
+    .to(".wrapper", {opacity:0}, "-=0.5")
+
     /* contact content */
     .to(".contact-form .form-box", {duration:0.1, opacity:0}, "-=0.8")
     .to(".contact-form .form-box .input-box textarea", {duration:0.3, translateX:-100}, "-=0.3")
@@ -31,22 +33,23 @@ function pageTransition() {
     .to(".contact-form", {duration:0.05, opacity:0, height:"0%", translateX:-500, ease: Elastic.easeOut.config(5, 5)}, "-=1.5")
     .to(".contact", {opacity:0, height:"0%",ease: Elastic.easeOut.config(5, 5)}, "-=1")
 
-    .fromTo(".container", {opacity: 1, duration: 0.5, height: "90vh"}, {opacity: 0, height: "0vh"})
+    .fromTo(".container", {opacity: 1, duration: 0.5, height: "90vh"}, {opacity: 0, height: "0vh"}, "-=0.8")
 }
 function pageTras() {
     var tl = gsap.timeline();
-    tl.fromTo(".container", {opacity: 1, duration: 0.5, height: "0vh"}, {opacity: 1, height: "90vh"});
+    tl.fromTo(".container", {opacity: 1, duration: 0.5, height: "0vh"}, {opacity: 1, height: "90vh"}, "+=1");
 }
 function contentAnimation() {
     var tl = gsap.timeline();
     /* banner content */
     tl.fromTo("h2", {opacity:0, duration:0.9},{opacity:1, translateY:-50});
-    tl.fromTo(".home .image", {duration:0.5, opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700}, "-=0.5");/*
+    tl.fromTo(".home .image", {duration:0.5, opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700}, "-=0.2");/*
     /* about content */
-    tl.fromTo(".about .image", {opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700, translateY:-20})
+    tl.fromTo(".about", {duration:2.5, opacity:0, translateY:100}, {opacity:1, translateY:20}, "+=0.8");
+    tl.fromTo(".about .image", {duration: 2, opacity:0, backgroundSize:500}, {opacity:1, backgroundSize:700, translateY:-20}, "-=1");
     tl.fromTo(".next-button", {opacity:0, backgroundSize:20}, {opacity:1, backgroundSize:50});
     /* time-line content */
-    tl.fromTo("#line", {opacity:0, translateX:-1000, width:"300%"}, {opacity:1, translateX:0, width:"75%", ease: Elastic.easeOut.config( 3, 0.5)});
+    tl.fromTo("#line", {opacity:0, translateX:-1000, width:"300%"}, {opacity:1, translateX:0, width:"75%", ease: Elastic.easeOut.config( 3, 0.5)}, "-=1");
     tl.fromTo("#progress-bar ul", {duration:0.5, opacity:0, translateY:-20}, {duration:0.5, opacity:1, translateY:0, ease: Elastic.easeOut.config( 3, 0.5)}, "+=0.7");
     /* skills content */
     tl.fromTo("#celular01", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=2.50")
@@ -59,7 +62,8 @@ function contentAnimation() {
     tl.fromTo("#celular07", {opacity:0, translateY:-900, translateX:-900}, {opacity:1, translateY:0, translateX:0}, "-=0.85")
     tl.fromTo("#line-bar", {duration:0, opacity:0, width:"0%", translateX:"82vh"}, {duration:0.3, opacity:1, width:"75%", translateX:"0vh"})
     /* portfolio content */
-    tl.from(".swiper-container", {duration:1, opacity:0, translateY: 50, ease: Elastic.easeOut.config( 1, 0.5)}, "-=1.1")
+    //tl.fromTo(".wrapper", {opacity:0}, {opacity:1}, "-=2")
+    tl.fromTo(".wrapper", {duration:2.5, opacity:0, translateY:100}, {opacity:1, translateY:20}, "-=2.5");
     /* contact content */
     tl.fromTo(".contact", {opacity:0, translateX:"120%", height:"200%"}, {opacity:1,translateX:"120%",height:"72%", ease: Elastic.easeOut.config(5, 5)}, "-=1.9")
     tl.fromTo(".contact .contact-links", {opacity:0, translateY:100}, {opacity:1, translateY:0}, "-=0.95")
@@ -122,7 +126,8 @@ barba.init({
                     scroller: ".container",
                     trigger: ".content",
                     toggleActions: "restart pause reverse pause",
-                    scrub: 0.8
+                    scrub: 0.8,
+                    markers: true,
                 },
                 y: -100,
                 x: -50,
@@ -141,7 +146,6 @@ barba.init({
                 },
                 opacity: 0
             })
-
 
             /* COMPONENTES DA ESQUERDA - FIRST */
             gsap.to(".img-left-first img", {
@@ -162,7 +166,7 @@ barba.init({
                 scrollTrigger: {
                     scroller: ".container",
                     trigger: ".img-left-first img",
-                    start: "top 10%",
+                    start: "center 25%",
                     end: "+=100",
                     toggleActions: "restart none reverse pause",
                     scrub: 0.3,
@@ -209,7 +213,7 @@ barba.init({
             gsap.to(".content-left-first", {
                 scrollTrigger: {
                     scroller: ".container",
-                    start: "top 20%",
+                    start: "center 20%",
                     end: "+=75",
                     trigger: ".content-left-first",
                     toggleActions: "restart pause reverse pause",
@@ -218,7 +222,7 @@ barba.init({
                 opacity:0,
             })
 
-            /* COMPONENTES DA DIREITA */
+            /* COMPONENTES DA DIREITA - SECOND */
             gsap.to(".img-right-second img", {
                 scrollTrigger: {
                     scroller: ".container",
@@ -237,7 +241,7 @@ barba.init({
                 scrollTrigger: {
                     scroller: ".container",
                     trigger: ".img-right-second img",
-                    start: "top 10%",
+                    start: "center 25%",
                     end: "+=100",
                     toggleActions: "restart none reverse pause",
                     scrub: 0.3,
@@ -284,7 +288,7 @@ barba.init({
             gsap.to(".content-right-second", {
                 scrollTrigger: {
                     scroller: ".container",
-                    start: "center 55%",
+                    start: "center 25%",
                     trigger: ".content-right-second",
                     toggleActions: "restart pause reverse pause",
                     scrub: true
@@ -294,7 +298,7 @@ barba.init({
 
             /* REPETIÇÃO PARA DEMAIS QUADROS */
 
-            /* COMPONENTES DA ESQUERDA */
+            /* COMPONENTES DA ESQUERDA - THIRD */
             gsap.to(".img-left-third img", {
                 scrollTrigger: {
                     scroller: ".container",
@@ -313,7 +317,7 @@ barba.init({
                 scrollTrigger: {
                     scroller: ".container",
                     trigger: ".img-left-third img",
-                    start: "top 10%",
+                    start: "center 25%",
                     end: "+=100",
                     toggleActions: "restart none reverse pause",
                     scrub: 0.3,
@@ -360,7 +364,7 @@ barba.init({
             gsap.to(".content-left-third", {
                 scrollTrigger: {
                     scroller: ".container",
-                    start: "center 55%",
+                    start: "center 25%",
                     trigger: ".content-left-third",
                     toggleActions: "restart pause reverse pause",
                     scrub: true
@@ -368,7 +372,7 @@ barba.init({
                 opacity:0,
             })
 
-            /* COMPONENTES DA DIREITA */
+            /* COMPONENTES DA DIREITA - FOURTH */
             gsap.to(".img-right-fourth img", {
                 scrollTrigger: {
                     scroller: ".container",
@@ -387,7 +391,7 @@ barba.init({
                 scrollTrigger: {
                     scroller: ".container",
                     trigger: ".img-right-fourth img",
-                    start: "top 10%",
+                    start: "center 25%",
                     end: "+=100",
                     toggleActions: "restart none reverse pause",
                     scrub: 0.3,
@@ -434,8 +438,304 @@ barba.init({
             gsap.to(".content-right-fourth", {
                 scrollTrigger: {
                     scroller: ".container",
-                    start: "center 55%",
+                    start: "center 50%",
                     trigger: ".content-right-fourth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+
+            /* COMPONENTES DA ESQUERDA - FIFTH */
+            gsap.to(".img-left-fifth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-fifth img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: -500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-left-fifth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-fifth img",
+                    start: "center 25%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineleft-fifth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-fifth",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: -480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineleft-fifth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-fifth",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-left-fifth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-left-fifth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: -200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-left-fifth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "center 25%",
+                    trigger: ".content-left-fifth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+
+            /* COMPONENTES DA DIREITA - SIXTH */
+            gsap.to(".img-right-sixth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-sixth img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: 500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-right-sixth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-sixth img",
+                    start: "center 25%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineright-sixth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-sixth",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: 480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineright-sixth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-sixth",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-right-sixth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-right-sixth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: 200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-right-sixth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "center 25%",
+                    trigger: ".content-right-sixth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+            
+            /* COMPONENTES DA ESQUERDA - SEVENTH */
+            gsap.to(".img-left-seventh img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-seventh img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: -500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-left-seventh img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-left-seventh img",
+                    start: "center 25%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineleft-seventh", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-seventh",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: -480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineleft-seventh", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineleft-seventh",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-left-seventh", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-left-seventh",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: -200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-left-seventh", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "center 25%",
+                    trigger: ".content-left-seventh",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                opacity:0,
+            })
+
+            /* COMPONENTES DA DIREITA - EIGHTH */
+            gsap.to(".img-right-eighth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-eighth img",
+                    start: "top bottom",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                y: -300,
+                x: 500,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".img-right-eighth img", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".img-right-eighth img",
+                    start: "center 25%",
+                    end: "+=100",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.3,
+                },
+                opacity: 0
+            })
+            gsap.to(".box-lineright-eighth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-eighth",
+                    toggleActions: "restart none reverse pause",
+                    scrub: 0.7
+                },
+                y: -280,
+                x: 480,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".box-lineright-eighth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-lineright-eighth",
+                    start: "top 30%",
+                    end: "+=200",
+                    toggleActions: "restart none reverse pause",
+                    scrub: true,
+                },
+                opacity: 0
+            })
+            gsap.to(".content-right-eighth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".content-right-eighth",
+                    toggleActions: "restart pause reverse pause",
+                    scrub: true
+                },
+                y: -150,
+                x: 200,
+                scale: 1.5,
+                stagger: 0.3,
+                ease: "none",
+            })
+            gsap.to(".content-right-eighth", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    start: "center 25%",
+                    trigger: ".content-right-eighth",
                     toggleActions: "restart pause reverse pause",
                     scrub: true
                 },
@@ -446,13 +746,13 @@ barba.init({
     },{
         namespace: 'about',
         afterEnter() {
-            const words = ["Sou observador, dedicado e fascinado por idéias simples para grandes problemas.<br><br>Gosto de metodologias ágeis e trabalhar em múltiplos projetos com uso de métricas.<br><br>Já atuei na área comercial e assumi responsabilidades como líder de equipe em projeto, definindo e cumprindo prazos.<br>Tenho experiência em gerar relatórios e organizar dados para melhor visualização."]
-            
-            let masterTl = gsap.timeline({/*repeat: 1,*/ delay:1})
+            const words = ["Estou terminando a faculdade de Engenharia de Produção,<br>tenho interesse em seguir área relacionada ao uso de dados, por isso estou me especializando com alguns<br>cursos de programação e Business Inteligence<br><br>Já atuei na área comercial, organizei um evento,<br>apliquei aulas em projeto voluntário e georreferenciei<br>a cidade em projeto na Prefeitura<br><br>Sou observador, dedicado e fascinado por idéias simples<br>para grandes problemas"]
+
+            let masterTl = gsap.timeline({/*repeat: 1,*/ delay:1.5})
 
             words.forEach(letter => {
-                let tl = gsap.timeline({yoyo:true/*,repeat:1,repeatDelay:2*/})
-                tl.to(".text",{duration:25, text: letter})
+                let tl = gsap.timeline({yoyo:false/*,repeat:1,repeatDelay:2*/})
+                tl.to(".text",{duration:20, ease:"none", text: letter})
                 masterTl.add(tl)
             })
         }
@@ -540,31 +840,80 @@ barba.init({
         }
     },{
         namespace: 'portfolio',
-        beforeEnter() {
-            var swiper = new Swiper('.swiper-container', {
-                direction: 'horizontal',
-                loop: true,
-                spaceBetween: 10,
-                effect: 'fade',
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                coverflowEffect: {
-                    rotate: 40,
-                    stretch: 0,
-                    depth: 150,
-                    modifier: 1,
-                    slideShadows : true,
-                },
-                autoplay: {
-                    delay: 1500,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                },
+        afterEnter() {
+            gsap.registerPlugin(ScrollTrigger)
+
+            const config = { threshold: 0.5 };
+            let observer = new IntersectionObserver(function(entries, self) { 
+                let targets = entries.map(entry => {
+                    if(entry.isIntersecting) {
+                    self.unobserve(entry.target);
+                    return entry.target;
+                    }
+                });
+            
+            // Call animation function
+            fadeIn(targets);
+            }, config);
+
+            document.querySelectorAll('.grid').forEach(grid => {
+                observer.observe(grid);
             });
+
+            // Act in the targets given
+            function fadeIn(targets) {
+                gsap.to(targets, {
+                    scrollTrigger: {
+                        scroller: ".container",
+                        trigger: targets,
+                        toggleActions: "restart pause reverse pause",
+                        start: "top 45px",
+                        end: "+=50",
+                        scrub: 0.3,
+                    },
+                    scale: 1.4,
+                    ease: "none",
+                });
+                gsap.to(targets, {
+                    scrollTrigger: {
+                        scroller: ".container",
+                        trigger: targets,
+                        toggleActions: "restart pause reverse pause",
+                        start: "top 91%",
+                        end: "+=55",
+                        scrub: 0.3,
+                    },
+                    scale: 1.1,
+                    opacity: 1,
+                    ease: "none",
+                });
+            }
+            /*
+            // FIRST ROW
+                
+
+                // SECOND ROW
+            gsap.to(".box-left-second", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-left-second",
+                    toggleActions: "restart pause reverse pause",
+                    start: "top 50%",
+                    markers: true,
+                },
+                x: -200
+            });
+            gsap.to(".box-right-second", {
+                scrollTrigger: {
+                    scroller: ".container",
+                    trigger: ".box-right-second",
+                    toggleActions: "restart pause reverse pause",
+                    start: "top 50%",
+                    markers: true,
+                },
+                x: 200
+            });*/
+            
         }
     },{
         namespace: 'contact',

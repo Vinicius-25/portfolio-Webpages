@@ -7,3 +7,5 @@ words.forEach(word => {
     tl.to(".text",{duration:20, ease:"none", text: letter})
     masterTl.add(tl)
 })
+
+

@@ -22,6 +22,25 @@ gsap.to(".image", {
     ease: "none",
 })
 
+/* OUTRA FORMA COM FLIP DAS LETRAS
+//var names = ["Developper","Data Anlasys","Engineer Estudant", "Vinícius"];
+//var counter = 0;
+//var inst = setInterval(change, 2000);
+function change() {
+    document.getElementById("flip").innerHTML = names[counter];
+    document.getElementById("flip").style.transform = 'scaleX (-1)';
+    counter++;
+    if (counter >= names.length) {
+        counter = 0;
+        // clearInterval(inst); // uncomment this if you want to stop refreshing after one cycle
+    }
+}
+
+//OUTRA FORMA
+var tlo = new TimelineMax();
+tlo.to("h2", 4, {repeat:Infinity, repeatDelay:1, yoyo:true, text:" is so much fun you should try it some time!"})
+*/
+
 /* COMPONENTES DA ESQUERDA - FIRST */
 gsap.to(".img-left-first img", {
     scrollTrigger: {
